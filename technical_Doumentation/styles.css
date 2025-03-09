@@ -67,7 +67,7 @@
 	#content{
 		overflow:hidden;
 		max-width:80%;
-		padding:5px;
+		padding:0 5px;
 	}
 
 	#pre{
@@ -82,7 +82,7 @@
 	#content{
 	  overflow:hidden;
 	  max-width:60%;
-	  padding:1rem;
+	  padding:0 1rem;
 	  }
 
 	 #navbar{
@@ -100,7 +100,7 @@
 	#content{
 		overflow:hidden;
 		max-width:60%;
-		padding:2rem;
+		padding:0 2rem;
 	}
   }
 
@@ -108,7 +108,7 @@
 	#content{
 		overflow:hidden;
 		max-width:80%;
-		padding:3rem;
+		padding:0 3rem;
 	}
 	#navbar{
 		height:100vh;
