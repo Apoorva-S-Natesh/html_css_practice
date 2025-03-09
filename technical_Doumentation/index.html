@@ -5,81 +5,433 @@
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>  
+    <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap" rel="stylesheet">
   </head>
   <body>
     <main id="main-doc">
       <nav id="navbar">
-        <header></header>
-        <a class="nav-link" href=""></a>
-        <a class="nav-link" href=""></a>
-        <a class="nav-link" href=""></a>
-        <a class="nav-link" href=""></a>
-        <a class="nav-link" href=""></a>
-        <a class="nav-link" href=""></a>
-        <a class="nav-link" href=""></a>
-        <a class="nav-link" href=""></a>
+        <header>C language</header>
+        <a class="nav-link" href="#Introduction">Introduction</a>
+        <a class="nav-link" href="#Basic_Structure">Basic Structure</a>
+        <a class="nav-link" href="#Lexical_Elements">Lexical Elements</a>
+        <a class="nav-link" href="#Data_Types">Data Types</a>
+        <a class="nav-link" href="#Expressions_and_Operators">Expressions and Operators</a>
+        <a class="nav-link" href="#Statements">Statements</a>
+        <a class="nav-link" href="#Functions">Functions</a>
+        <a class="nav-link" href="#Memory_Management">Memory Management</a>
       </nav>
-      <section class="main-section" id="">
-        <header></header>
-        <p></p>
-        <p></p>
-        <code></code>
-        <p></p>
-        <ul><li></li></ul>
+      <section class="main-section" id="Introduction">
+        <header>Introduction</header>
+        <p>C is a general-purpose, procedural programming language developed by Dennis Ritchie in 1972 at Bell Labs. It is widely used for system programming, embedded systems, and application development due to its efficiency and flexibility.</p>
+        <p class="key_heading">Key Features of C</p>
+        <ul>
+          <li>Procedural and structured language</li>
+          <li>Low-level memory access</li>
+          <li>High performance and portability</li>
+          <li>Rich library support</li>
+          <li>Direct interaction with hardware</li>
+        </ul>
       </section>
 
-      <section class="main-section" id="">
-        <header></header>
-        <p></p>
-        <p></p>
-        <code></code>
-        <p></p>
-        <ul><li></li></ul>
+      <section class="main-section" id="Basic_Structure">
+        <header>Basic Structure</header>
+        <p>Every C program follows a basic structure that includes:</p>
+        <ol>
+          <li><strong>Preprocessor Directives</strong> - Include necessary header files</li>
+          <li><strong>Main Function</strong> - Entry point of the program</li>
+          <li><strong>Variable Declaration</strong> - Declaring variables before using them</li>
+          <li><strong>Logic Implementation</strong> - Writing the logic inside functions</li>
+          <li><strong>Return Statement</strong> - Returning a value from main() is optional</li>
+        </ol>
+        <pre>
+          <code>
+#include &lt;stdio.h&gt;  // Preprocessor directive 
+
+int main()  // Main function
+{  
+printf("Hello, World!\n");  // Printing output
+return 0;  // Indicating successful execution
+}
+          </code>
+        </pre>
+        <p><em>*Line 2 - A blank line. C ignores white space. But we use it to make the code more readable.</em></p>
       </section>
 
-      <section class="main-section" id="">
-        <header></header>
-        <p></p>
-        <p></p>
-        <code></code>
-        <p></p>
-        <ul><li></li></ul>
+      <section class="main-section" id="Lexical_Elements">
+        <header>Lexical Elements</header>
+		<p>Lexical elements are the basic building blocks of a C program that make up C source code after preprocessing. These elements are called tokens. There are five types of tokens:<strong> identifiers, keywords, constants, operators, and separators. White space,</strong> sometimes required to separate tokens.</p>
+		<div class="lexical">
+			<div>
+				<p class="key_heading">Identifieres</p>
+				<p>Identifiers are sequences of characters used for naming variables, functions, new data types, and preprocessor macros. You can include letters, decimal digits, and the underscore character ‘_’ in identifiers.</p>
+				<p>The first character of an identifier cannot be a digit. Lowercase letters and uppercase letters are distinct, such that foo and FOO are two different identifiers.
+				  When using GNU extensions, you can also include the dollar sign character ‘$’ in identifiers.</p>
+			</div>
+			<div>
+				<p class="key_heading">Keywords</p>
+        		<p>Keywords are special identifiers reserved for use as part of the programming language itself. You cannot use them for any other purpose.</p>
+        		<p>Here is a list of keywords recognized by ANSI C89:</p>
+        		<pre><code>auto break case char const continue default do double else enum extern
+float for goto if int long register return short signed sizeof static
+struct switch typedef union unsigned void volatile while</code></pre>
+       			<p>and GNU extensions add these keywords:</p>
+        		<pre><code>__FUNCTION__ __PRETTY_FUNCTION__ __alignof __alignof__ __asm
+__asm__ __attribute __attribute__ __builtin_offsetof __builtin_va_arg
+__complex __complex__ __const __extension__ __func__ __imag __imag__ 
+__inline __inline__ __label__ __null __real __real__ 
+__restrict __restrict__ __signed __signed__ __thread __typeof
+__volatile __volatile__ </code></pre>
+			</div>
+
+			<div>
+				<p class="key_heading">Constants</p>
+				<p>A constant is a literal numeric or character value, such as 5 or 'm'. All constants are of a particular data type; you can use type casting to explicitly specify the type of a constant, or let the compiler use the default type based on the value of the constant.</p>
+				<div><p><strong>Integer Constants</strong></p>
+					<p>An integer constant is a sequence of digits, with an optional prefix to denote a number base.</p>
+					<p>If the sequence of digits is preceded by 0x or 0X (zero x or zero X), then the constant is considered to be hexadecimal (base 16). Hexadecimal values may use the digits from 0 to 9, as well as the letters a to f and A to F. Here are some examples:
+						<pre><code>0x2f
+0x88
+0xAB43
+0xAbCd
+0x1</code></pre></p>
+					<p>If the first digit is 0 (zero), and the next character is not ‘x’ or ‘X’, then the constant is considered to be octal (base 8). Octal values may only use the digits from 0 to 7; 8 and 9 are not allowed. Here are some examples:
+						<pre><code>057
+012
+03
+0241</code></pre></p>
+			<p>In all other cases, the sequence of digits is assumed to be decimal (base 10). Decimal values may use the digits from 0 to 9.</p>
+				</div>
+
+				<div><p><strong>Character Constants</strong></p>
+				<p>A character constant is usually a single character enclosed within single quotation marks, such as 'Q'. 
+					A character constant is of type int by default.</p>
+				<p>Some characters, such as the single quotation mark character itself, cannot be 
+					represented using only one character. To represent such characters, there are several “escape sequences” that you can use:
+					<pre><code>
+\\
+Backslash character.
+		  
+\?
+Question mark character.
+		  
+\'
+Single quotation mark.
+		  
+\"
+Double quotation mark.
+		  
+\a
+Audible alert.
+		  
+\b
+Backspace character.
+		  
+\e
+&lt;ESC&gt; character. (This is a GNU extension.)
+
+\n
+Newline character.
+		  
+\r
+Carriage return.
+		  
+\t
+Horizontal tab.
+		  
+\v
+Vertical tab.
+		  
+\o, \oo, \ooo
+Octal number.
+		  
+\xh, \xhh, \xhhh, …
+Hexadecimal number.
+		  
+and treat it as if it were any other character. For example, the letter m is 'm' 
+and the newline character is '\n'.</code></pre></p>
+				</div>
+
+
+				<div><p><strong>Real Number Constants</strong></p>
+					<p>A real number constant is a value that represents a fractional 
+						(floating point) number. It consists of a sequence of digits which 
+						represents the integer (or “whole”) part of the number, a decimal point, 
+						and a sequence of digits which represents the fractional part.
+						<br>
+						Either the integer part or the fractional part may be omitted, but not both.</p>
+				</div>
+
+				<div><p><strong>String Constants</strong></p>
+					<p>A string constant is a sequence of zero or more characters, digits, 
+						and escape sequences enclosed within double quotation marks. 
+						A string constant is of type “array of characters”. All string constants contain a 
+						null termination character (\0) as their last character. 
+						Strings are stored as arrays of characters, with no inherent size attribute. 
+						The null termination character lets string-processing functions know where the string ends.</p>
+					<p>Adjacent string constants are concatenated (combined) into one string, with the null 
+						termination character added to the end of the final concatenated string.</p>
+					<p>A string cannot contain double quotation marks, as double quotation marks are 
+					used to enclose the string. To include the double quotation mark character in a string, 
+					use the \" escape sequence. You can use any of the escape sequences that can be used as 
+					character constants in strings. Here are some example of string constants:</p>
+					<pre>
+<em>/* This is a single string constant. */</em>
+<code>"tutti frutti ice cream"</code>
+						
+<em>/* These string constants will be concatenated, same as above. */</em>
+<code>"tutti " "frutti" " ice " "cream"</code>
+						
+<em>/* This one uses two escape sequences. */</em>
+<code>"\"hello, world!\""</code>
+
+<em>If a string is too long to fit on one line, you can use a backslash \ to break it up onto separate lines.</em>					
+<code>"Today's special is a pastrami sandwich on rye bread with \
+a potato knish and a cherry soda."</code>
+
+<em>Adjacent strings are automatically concatenated, so you can also have string constants span multiple lines by writing them as separate, adjacent, strings. For example:</em>						
+<code>"Tomorrow's special is a corned beef sandwich on "
+"pumpernickel bread with a kasha knish and seltzer water."
+is the same as
+						
+"Tomorrow's special is a corned beef sandwich on \
+pumpernickel bread with a kasha knish and seltzer water."</code>
+
+<em>To insert a newline character into the string, so that when the string is printed it will be printed on two different lines, you can use the newline escape sequence ‘\n’.</em>						
+<code>printf ("potato\nknish");
+prints
+						
+potato
+knish</code></pre>
+				</div>
+			</div>
+		</div>
+        
       </section>
 
-      <section class="main-section" id="">
-        <header></header>
-        <p></p>
-        <p></p>
-        <code></code>
-        <p></p>
-        <ul><li></li></ul>
+      <section class="main-section" id="Data_Types">
+        <header>Data Types</header>
+        <p>The data type specifies the size and type of information the variable will store.</p>
+        <p class="key_heading">Primitive data Types</p>
+        <ol>
+          <li>Integer types</li>
+          <li>Real Number types</li>
+          <li>complex Number types</li>
+        </ol>
+        <div id="Integer_Types">
+          <h3>Integer Types</h3>
+          <p>The integer data types range in size from at least 8 bits to at least 32 bits. The C99 standard extends this range to include integer sizes of at least 64 bits. You should use integer types for storing whole number values (and the char data type for storing characters). 
+            The sizes and ranges listed for these types are minimums; depending on your computer platform, these sizes and ranges may be larger.</p>
+          <ul>
+            <li><code>signed char</code>
+            <p>The 8-bit signed char data type can hold integer values in the range of -128 to 127.</p></li>
+            <li><code>unsigned char</code>
+            <p>The 8-bit unsigned char data type can hold integer values in the range of 0 to 255.<p></li>
+            <li><code>char</code>
+            <p>Depending on your system, the char data type is defined as having the same range as either the signed char or the unsigned char data type (they are three distinct types, however). By convention, you should use the char data type specifically for storing ASCII characters (such as `m'), including escape sequences (such as `\n').</p></li>
+            <li><code>short int</code>
+            <p>The 16-bit short int data type can hold integer values in the range of -32,768 to 32,767. You may also refer to this data type as short, signed short int, or signed short.</p></li>
+            <li><code>unsigned short int</code>
+            <p>The 16-bit unsigned short int data type can hold integer values in the range of 0 to 65,535. You may also refer to this data type as unsigned short.</p></li>
+            <li><code>int</code>
+            <p>The 32-bit int data type can hold integer values in the range of -2,147,483,648 to 2,147,483,647. You may also refer to this data type as signed int or signed.</p></li>
+            <li><code>unsigned int</code>
+            <p>The 32-bit unsigned int data type can hold integer values in the range of 0 to 4,294,967,295. You may also refer to this data type simply as unsigned.</p></li>
+            <li><code>long int</code>
+            <p>The 32-bit long int data type can hold integer values in the range of at least -2,147,483,648 to 2,147,483,647. (Depending on your system, this data type might be 64-bit, in which case its range is identical to that of the long long int data type.) You may also refer to this data type as long, signed long int, or signed long.</p></li>
+            <li><code>unsigned long int</code>
+            <p>The 32-bit unsigned long int data type can hold integer values in the range of at least 0 to 4,294,967,295. (Depending on your system, this data type might be 64-bit, in which case its range is identical to that of the unsigned long long int data type.) You may also refer to this data type as unsigned long.</p></li>
+            <li><code>long long int</code>
+            <p>The 64-bit long long int data type can hold integer values in the range of -9,223,372,036,854,775,808 to 9,223,372,036,854,775,807. You may also refer to this data type as long long, signed long long int or signed long long. This type is not part of C89, but is both part of C99 and a GNU C extension.</p></li>
+            <li><code>unsigned long long int</code>
+            <p>The 64-bit unsigned long long int data type can hold integer values in the range of at least 0 to 18,446,744,073,709,551,615. You may also refer to this data type as unsigned long long. This type is not part of C89, but is both part of C99 and a GNU C extension.<p></li>
+          </ul>
+        </div>
+        <div id="Real_Number_Types">
+          <p>There are three data types that represent fractional numbers. While the sizes and 
+            ranges of these types are consistent across most computer systems in use today, 
+            historically the sizes of these types varied from system to system. 
+            As such, the minimum and maximum values are stored in macro definitions 
+            in the library header file float.h. In this section, we include the names of 
+            the macro definitions in place of their possible values; check your system’s float.h for specific numbers.</p>
+            <ul>
+              <li><code>float</code>
+<p>The float data type is the smallest of the three floating point types, if they differ in size at all. 
+Its minimum value is stored in the FLT_MIN, and should be no greater than 1e-37. 
+Its maximum value is stored in FLT_MAX, and should be no less than 1e37.<p></li>
+<li><code>double</code>
+<p>The double data type is at least as large as the float type, and it may be larger. Its minimum value is 
+  stored in DBL_MIN, and its maximum value is stored in DBL_MAX.</p></li>
+<li><code>long double</code>
+<p>The long double data type is at least as large as the float type, and it may be larger. 
+  Its minimum value is stored in LDBL_MIN, and its maximum value is stored in LDBL_MAX.</p></li>
+            </ul>
+        </div>
+        <pre><code>#include &lt;stdio.h&gt;
+
+int main() {
+    int age = 25;  
+    float pi = 3.14;
+    char letter = 'A';
+
+    printf("Age: %d\n", age);
+    printf("Pi: %.2f\n", pi);
+    printf("Letter: %c\n", letter);
+
+    return 0;
+}
+</code></pre>
       </section>
 
-      <section class="main-section" id="">
-        <header></header>
-        <p></p>
-        <p></p>
-        <code></code>
-        <p></p>
-        <ul><li></li></ul>
+      <section class="main-section" id="Expressions_and_Operators">
+        <header>Expressions and Operators</header>
+        <p>Expressions combine variables, constants, and operators to perform computations.</p>
+        <p class="key_heading">Types of Operators in C</p>
+        <ol>
+          <li>Arithmetic Operators <code>(+, -, *, /, %)</code></li>
+          <li>Relational Operators <code>(==, !=, &gt;, &lt;, &gt;=, &lt;=)</code></li>
+          <li>Logical Operators <code>(&&, ||, !)</code></li>
+          <li>Bitwise Operators <code>(&, |, ^, <<, >>)</code></li>
+          <li>Assignment Operators <code>(=, +=, -=, *=, /=, %=)</code></li>
+          <li>Increment & Decrement <code>(++, --)</code></li>
+          <li>Conditional (Ternary) Operator <code>(?:)</code></li>
+        </ol>
+        <pre><code>#include &lt;stdio.h&gt;
+
+int main() {
+    int a = 10, b = 5;
+    
+    printf("Sum: %d\n", a + b);
+    printf("Difference: %d\n", a - b);
+    printf("Product: %d\n", a * b);
+    
+    if (a > b) {
+        printf("a is greater than b\n");
+    }
+
+    return 0;
+}
+</code></pre>
       </section>
 
-      <section class="main-section" id="">
-        <header></header>
-        <p></p>
-        <p></p>
+      <section class="main-section" id="Statements">
+        <header>Statements</header>
+        <p>You write statements to cause actions and to control flow within your programs. 
+          You can also write statements that do not do anything at all, or do things that are uselessly trivial.</p>
         <code></code>
-        <p></p>
-        <ul><li></li></ul>
+        <p class="key_heading">Types of Statements</p>
+        <ol>
+          <li>Expression Statements – Perform operations <code>(x = 10;)</code>.</li>
+          <li>Conditional Statements – Control execution flow <code>(if, switch)</code>.</li>
+          <li>Looping Statements – Repeat a block of code <code>(for, while, do-while).</code></li>
+          <li>Jump Statements – Alter program flow <code>(break, continue, return, goto).</code></li>
+        </ol>
+        <p class="key_heading">Example Code: If-Else Statement</p>
+        <pre><code>#include &lt;stdio.h&gt;
+
+int main() {
+    int num = 10;
+
+    if (num > 0) {
+        printf("Positive number\n");
+    } else {
+        printf("Negative number\n");
+    }
+
+    return 0;
+}
+</code></pre>
+      <p class="key_heading">Example Code: For Loop</p>
+      <pre><code>#include &lt;stdio.h&gt;
+
+int main() {
+    for (int i = 1; i <= 5; i++) {
+        printf("Iteration: %d\n", i);
+    }
+    return 0;
+}
+</code></pre>
+
+<p class="key_heading">Example Code: Break statement</p>
+      <pre><code>#include &lt;stdio.h&gt;
+
+int main() {
+    for (int i = 1; i <= 5; i++) {
+        if (i == 3) {
+            break;  // Exits loop when i == 3
+        }
+        printf("%d ", i);
+    }
+    return 0;
+}
+
+</code></pre>
       </section>
 
-      <section class="main-section" id="">
-        <header></header>
-        <p></p>
-        <p></p>
-        <code></code>
-        <p></p>
-        <ul><li></li></ul>
+      <section class="main-section" id="Functions">
+        <header>Functions</header>
+        <p>Functions allow modular programming by dividing a program into reusable blocks.</p>
+        <p class="key_heading">Types of Functions</p>
+        <ol><li>Library Functions – Predefined in standard libraries <code>(printf(), scanf(), strlen())</code>.</li>
+        <li>User-Defined Functions – Custom functions created by the user.</li></ol>
+        <p class="key_heading">Function Structure</p>
+        <ol>
+          <li>Function Declaration</li>
+          <li>Function Definition</li>
+          <li>Function Call</li>
+        </ol>
+        <pre><code>#include &lt;stdio.h&gt;
+
+// Function Declaration
+void greet(char name[]);
+
+int main() {
+    greet("Alice");  // Function Call
+    return 0;
+}
+
+// Function Definition
+void greet(char name[]) {
+    printf("Hello, %s!\n", name);
+}
+</code></pre>
+      </section>
+
+      <section class="main-section" id="Memory_Management">
+        <header>Memory Management</header>
+        <p>C provides dynamic memory allocation functions:</p>
+        <ol>
+          <li><code>malloc()</code> - Allocates memory</li>
+          <li><code>calloc()</code> - Allocates and initializes memory</li>
+          <li><code>realloc()</code> - Resizes allocated memory</li>
+          <li><code>free()</code> - Frees allocated memory</li>
+        </ol>
+        <p>Example Code</p>
+        <pre><code>#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+
+int main() {
+    int *ptr;
+    ptr = (int*) malloc(5 * sizeof(int));  // Allocating memory
+
+    if (ptr == NULL) {
+        printf("Memory allocation failed\n");
+        return 1;
+    }
+
+    for (int i = 0; i < 5; i++) {
+        ptr[i] = i + 1;
+        printf("%d ", ptr[i]);
+    }
+
+    free(ptr);  // Freeing memory
+    return 0;
+}
+</code></pre>
       </section>
       
     </main>
