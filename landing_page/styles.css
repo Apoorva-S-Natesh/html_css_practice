@@ -1,127 +1,19 @@
 :root {
-	--background-color1: #060606;
-	--highlight-color1: #609966;
-	--text-color1: #EDF1D6;
-	--btn-background: #4a8d7c;
-	--btn-hover-background: #36795e;
-  }
+	--primary-color: #2c6e49;
+	--secondary-color: #4c956c;
+	--accent-color: #f4a261;
+	--light-text: #f1f1e6;
+	--btn-background: #f4a261;
+	--btn-hover: #e76f51;
+	--card-background: #1b4332;
+	--highlight-background: rgba(76, 149, 108, 0.2);
+}
   
   * {
 	margin: 0;
 	padding: 0;
 	box-sizing: border-box;
-	transition: all 0.3s ease;
-  }
-  
-  html {
-	font-size: 16px;
-	line-height: 1.6;
-	font-family: 'Lexend', sans-serif;
-	color: var(--text-color1);
-	background-color: var(--background-color1);
-	text-align: center;
-  }
-  
-  #header {
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-	position: fixed;  /* Keeps the header at the top of the viewport */
-	top: 0;           /* Aligns the header at the very top of the page */
-	left: 0;          /* Aligns the header to the left edge */
-	width: 100%;      /* Ensures the header spans the full width */
-	padding: 1rem 4rem;
-	background-color: var(--background-color1); /* Background color for visibility */
-	z-index: 1000;    /* Ensures the header is above all other content */
-	box-shadow: 0 2px 4px rgba(0,0,0,0.5); /* Optional: Adds a shadow for better visibility against page content */
-  }
-  
-  
-  #headerimg {
-	display: flex;
-	align-items: center;
-	gap: 1rem;
-  }
-  
-  #header-img {
-	height: 50px; /* Control the size of the logo */
-  }
-  
-  #nav-bar {
-	display: flex;
-	gap: 2rem;
-  }
-  
-  .nav-link {
-	text-decoration: none;
-	color: var(--text-color1);
-	font-size: 1.1rem;
-	padding: 0.5rem;
-  }
-  
-  .nav-link:hover, .nav-link:focus {
-	background-color: var(--highlight-color1);
-	border-radius: 5px;
-  }
-  
-  main {
-	padding-top: 100px; /* Adjust based on header size */
-  }
-  
-  section {
-	margin-bottom: 2rem;
-	padding: 2rem;
-  }
-  
-  .btn {
-	background-color: var(--btn-background);
-	color: var(--text-color1);
-	border: none;
-	padding: 0.8rem 1.6rem;
-	font-size: 1rem;
-	cursor: pointer;
-	border-radius: 5px;
-	outline: none;
-  }
-  
-  .btn:hover {
-	background-color: var(--btn-hover-background);
-  }
-  
-  #key-benefits {
-	display: flex;
-	flex-wrap: wrap;
-	justify-content: space-around;
-	gap: 1rem;
-  }
-  
-  #benefits div {
-	width: 20%;
-	min-width: 180px;
-	background: rgba(0, 0, 0, 0.2);
-	padding: 1rem;
-	border-radius: 8px;
-  }
-  
-  .fa {
-	font-size: 2rem;
-	margin-bottom: 0.5rem;
-  }
-  
-  :root {
-	--color1: #3E352E;
-	--color2:#AB8868;
-	--color3: #bb945b;
-	--btn-background: #865d36;
-	--color4: #a69080;
-	--white-highlight:#e7decf;
-  }
-  
-  * {
-	margin: 0;
-	padding: 0;
-	box-sizing: border-box;
-	transition: all 0.3s ease;
+	transition: all 0.3s ease-in-out;
   }
   
   html {
@@ -136,15 +28,15 @@
    display:flex;
    justify-content:space-between;
    align-items:center;
-   background-color:var(--color2);
+   background-color:var(--primary-color);
    width:100%;
-   color:var(--color1);
+   color:var(--light-text);
    position:fixed;
    top:0;
    left:0;
    z-index:1000;
    padding:1rem 4rem; 
-   box-shadow:0 2px 4px rgba(0,0,0,0.4);
+   box-shadow:0 4px 8px rgba(0,0,0,0.3);
   }
   
   #headerimg{
@@ -168,14 +60,14 @@
   
   .nav-link{
 	text-decoration:none;
-	color:var(--color1);
+	color:var(--light-text);
 	font-size:1.2rem;
 	padding:0.5rem;
+  position:relative;
   }
   
   .nav-link:hover, .nav-link:focus{
-	background-color:var(--white-highlight);
-	color:var(--color2);
+	color:var(--accent-color);
   }
   
   main{
@@ -185,29 +77,37 @@
   }
   
   #hero{
-	padding:4rem;
-	color:var(--color1);
+	padding:5rem 2rem;
+  text-align:center;
   }
   
-  #hero >h1{
+  .hero-heading{
 	font-family:Gerogia, serif;
 	font-size:3rem;
+  font-weight:bold;
 	padding-bottom:2rem;
 	text-align:center;
 	max-width:50%;
 	margin:auto auto;
+  animation:fadeUp 1.2s ease-out forwards;
   }
   
   .btn{
 	padding:0.8rem 1.6rem;
 	margin-top:1rem;
 	background-color:var(--btn-background);
-	color:var(--white-highlight);
+  cursor:pointer;
 	border:none;
 	font-size:1rem;
+  font-weight:bold;
 	outline:none;
 	border-bottom-left-radius:15px;
 	border-top-right-radius:15px;
+  }
+
+  .btn:hover{
+    background-color:var(--btn-hover);
+    color:var(--light-text);
   }
   
   #benefits{
@@ -219,17 +119,16 @@
   }
   
   #benefits div{
-	background-color:var(--color4);
-	color:var(--color1);
+	background-color:var(--card-background);
+	color:var(--light-text);
 	border-bottom-left-radius:15px;
 	border-top-right-radius:15px;
-	padding:1rem;
+	padding:1.5rem;
+  box-shadow:0 8px 15px rgba(0,0,0,0.3);
   }
   
-  #benefits div:hover, #benefits div:focus{
-	background-color:var(--white-highlight);
-	color:var(--color1);
-	transform:scale(0.9);
+  #benefits div:hover, #benefits div:focus, #pricing div:hover, #pricing div:focus{
+    transform:translateY(-10px);
   }
   
   #video{
@@ -264,10 +163,10 @@
 	  width: calc(33% - 40px);
 	  min-width: 250px;
 	  padding: 2rem;
-	  background: var(--color4);
-	color:var(--color1);
+	  background: var(--card-background);
+		color:var(--light-text);
 	  border-bottom-left-radius:15px;
-	border-top-right-radius:15px;
+		border-top-right-radius:15px;
 	}
   
 	#contact{
@@ -277,12 +176,17 @@
 	footer {
 	  padding: 1rem;
 	  background-color: var(--color2);
-	color:var(--color1);
+	  color:var(--color1);
 	  text-align: center;
 	  position: relative;
 	  bottom: 0;
 	  width: 100%;
 	}
+
+  @keyframes fadeUp{
+    0% {opacity: 0; transform: translateY(20px);}
+    100% {opacity: 1; transform: translateY(0);}
+  }
 	
 	@media (max-width: 768px) {
 	  html {
@@ -293,7 +197,11 @@
 		flex-direction: column;
 		padding: 0.5rem;
 	  }
-	
+  
+    .hero-heading{
+      font-size:2rem;
+    }
+
 	  #nav-bar {
 		justify-content: center;
 		padding-top: 1rem;
