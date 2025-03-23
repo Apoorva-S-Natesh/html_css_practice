@@ -13,6 +13,7 @@ This project is a responsive technical documentation page about the C programmin
 * The page contains at least 10 paragraphs, 5 code blocks, and 5 list items
 * Uses media queries for responsiveness
 
+![Screenshot of the project on phone](./mockup_phone.png)
 ## Screenshot
 The page has a Fixed navigation bar on the left side (on large screens),  Clickable navigation links for smooth scrolling,  Syntax-highlighted code blocks using <code> elements, Responsive design with media queries for mobile compatibility
 
