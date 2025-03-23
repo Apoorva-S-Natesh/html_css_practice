@@ -18,4 +18,3 @@ The page has a Fixed navigation bar on the left side (on large screens),  Clicka
 
 
 ![Screenshot of the project](./mockup_laptop.png)
-![Screenshot of the project on Phone](./mockup_phone.png)
