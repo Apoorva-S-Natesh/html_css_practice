@@ -59,8 +59,12 @@
 			 font-size:24px;
 		 }
 	  
-	  #navbar i:hover, .social-icons i:hover{
+	  .social-icons i:hover{
 		color:var(--highlight-color-orange);
+	  }
+
+	  #navbar i:hover{
+		color:var(--color-white);
 	  }
 	  
 	  #welcome-section{
