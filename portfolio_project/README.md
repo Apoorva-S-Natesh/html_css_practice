@@ -1,0 +1,1 @@
+![Screenshot of the project](./iphone_ipad_image.png)
