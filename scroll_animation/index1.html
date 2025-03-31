@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scroll Animation - Zigzag Egg</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            height: 300vh;
+            background: #f4f4f4;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        .container {
+            position: relative;
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .egg {
+            position: fixed;
+            top: 10%;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 50px;
+            height: 70px;
+            background: #ffcc00;
+            border-radius: 50%;
+            transition: transform 0.3s linear;
+        }
+        .nest {
+            position: absolute;
+            bottom: 10%;
+            right: 10%;
+            width: 80px;
+            height: 50px;
+            background: brown;
+            border-radius: 50%;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="egg" id="egg"></div>
+    </div>
+    <div class="container">
+        <div class="nest"></div>
+    </div>
+
+    <script>
+        window.addEventListener("scroll", () => {
+            const egg = document.getElementById("egg");
+            const scrollPosition = window.scrollY;
+            const maxScroll = document.body.scrollHeight - window.innerHeight;
+            const moveY = (scrollPosition / maxScroll) * 80; // Move vertically
+            const moveX = Math.sin(moveY * 0.2) * 40; // Zigzag effect, centered
+            egg.style.transform = `translate(${moveX}px, ${moveY}vh)`;
+        });
+    </script>
+</body>
+</html>
