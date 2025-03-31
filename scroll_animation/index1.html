@@ -38,11 +38,12 @@
         .nest {
             position: absolute;
             bottom: 10%;
-            right: 10%;
+            right: 50%;
             width: 80px;
             height: 50px;
             background: brown;
             border-radius: 50%;
+            transform: translateX(50%);
         }
     </style>
 </head>
@@ -60,8 +61,14 @@
             const scrollPosition = window.scrollY;
             const maxScroll = document.body.scrollHeight - window.innerHeight;
             const moveY = (scrollPosition / maxScroll) * 80; // Move vertically
-            const moveX = Math.sin(moveY * 0.2) * 40; // Zigzag effect, centered
-            egg.style.transform = `translate(${moveX}px, ${moveY}vh)`;
+            const moveX = Math.sin(moveY * 2) * 40; // Zigzag motion in center
+            
+            egg.style.transform = `translateX(${moveX}px) translateY(${moveY}vh)`;
+            
+            // Move towards the nest at the bottom
+            if (scrollPosition > maxScroll * 0.9) {
+                egg.style.transform = `translateX(0) translateY(80vh)`;
+            }
         });
     </script>
 </body>
