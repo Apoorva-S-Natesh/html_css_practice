@@ -3,52 +3,65 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Scroll Animation</title>
+    <title>Scroll Animation - Egg to Nest</title>
     <style>
         body {
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
+            height: 200vh;
             background: #f4f4f4;
-            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
         }
         .container {
+            position: relative;
+            width: 100vw;
             height: 100vh;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 2em;
-            font-weight: bold;
         }
-        .hidden {
-            opacity: 0;
-            transform: translateY(50px);
-            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        .egg {
+            position: fixed;
+            top: 50%;
+            left: 10%;
+            width: 50px;
+            height: 70px;
+            background: #ffcc00;
+            border-radius: 50%;
+            transition: transform 0.3s linear;
         }
-        .show {
-            opacity: 1;
-            transform: translateY(0);
+        .nest {
+            position: absolute;
+            bottom: 10%;
+            right: 10%;
+            width: 80px;
+            height: 50px;
+            background: brown;
+            border-radius: 50%;
         }
     </style>
 </head>
 <body>
-    <div class="container" style="background: #ffcccb;">Welcome to My Page</div>
-    <div class="container hidden" style="background: #add8e6;">Scroll to Reveal</div>
-    <div class="container hidden" style="background: #90ee90;">Nice Smooth Animation</div>
-    <div class="container hidden" style="background: #ffa07a;">You Did It!</div>
+    <div class="container">
+        <div class="egg" id="egg"></div>
+    </div>
+    <div class="container">
+        <div class="nest"></div>
+    </div>
 
     <script>
-        const hiddenElements = document.querySelectorAll(".hidden");
-
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add("show");
-                }
-            });
-        }, { threshold: 0.2 });
-
-        hiddenElements.forEach(el => observer.observe(el));
+        window.addEventListener("scroll", () => {
+            const egg = document.getElementById("egg");
+            const scrollPosition = window.scrollY;
+            const maxScroll = document.body.scrollHeight - window.innerHeight;
+            const moveX = (scrollPosition / maxScroll) * 80; // Move from 10% to 90%
+            const moveY = (scrollPosition / maxScroll) * 50; // Adjust height 
+            egg.style.transform = `translate(${moveX}vw, ${moveY}px)`;
+        });
     </script>
 </body>
 </html>
